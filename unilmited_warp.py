@@ -1,10 +1,12 @@
 import json
+import os
 import datetime
 import time , requests , random , string
 import urllib
 from pyfiglet import Figlet
 from rainbowtext import text
 from colorama import Fore
+
 def rand_number():
     return str(random.randint(1,999))
 
@@ -16,7 +18,6 @@ def rand_string(number):
 
 session = requests.Session()
 url = "https://api.cloudflareclient.com/v0a%s/reg" % rand_number()
-
 
 
 def warp_unlimited(id_code):
@@ -44,8 +45,11 @@ print (text(banner))
 print (Fore.RED + "[$] Created By Maximum Radikali")
 print (Fore.GREEN + "[$] Channel ~> @BlackFoxSecurityTeam")
 print (Fore.LIGHTMAGENTA_EX + "[&] Warp Plus Unlimited Script ! ")
-print (Fore.YELLOW + "=====================================") ; code_id = input(Fore.CYAN + "[+] Please Enter Your Client ID : ")
+print (Fore.YELLOW + "=====================================") ; 
 
+code_id=os.getenv('DEVICEID')
+if (not code_id):
+   code_id = input(Fore.CYAN + "[+] Please Enter Your Client ID : ")
 
 while True:
     try:
